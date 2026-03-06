@@ -13,7 +13,7 @@ text-align:center;
 padding-top:50px;
 }
 
-img{
+img.profile{
 width:120px;
 height:120px;
 border-radius:50%;
@@ -29,8 +29,11 @@ color:#cbd5f5;
 }
 
 .link{
-display:block;
-width:250px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+width:260px;
 margin:15px auto;
 padding:12px;
 background:white;
@@ -39,6 +42,10 @@ text-decoration:none;
 border-radius:10px;
 font-weight:bold;
 transition:0.3s;
+}
+
+.link img{
+width:20px;
 }
 
 .link:hover{
@@ -53,21 +60,35 @@ color:white;
 
 <body>
 
-<img src="https://i.imgur.com/2DhmtJ4.png">
+<img class="profile" src="https://i.imgur.com/2DhmtJ4.png">
 
 <h1>Rafi Dwi Kurniawan</h1>
-
 <p>Mahasiswa Teknik Industri UNSIKA</p>
 
-<a class="link" href="https://instagram.com/">Instagram</a>
+<a class="link" href="https://instagram.com/usernamekamu">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+Instagram
+</a>
 
-<a class="link" href="https://tiktok.com/">TikTok</a>
+<a class="link" href="https://tiktok.com/@usernamekamu">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+TikTok
+</a>
 
-<a class="link" href="https://github.com/">GitHub</a>
+<a class="link" href="https://github.com/rafidwiii5">
+<img src="https://cdn-icons-png.flaticon.com/512/733/733553.png">
+GitHub
+</a>
 
-<a class="link" href="https://linkedin.com/">LinkedIn</a>
+<a class="link" href="https://open.spotify.com/user/usernamekamu">
+<img src="https://cdn-icons-png.flaticon.com/512/174/174872.png">
+Spotify
+</a>
 
-<a class="link" href="mailto:emailkamu@gmail.com">Email</a>
+<a class="link" href="#">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">
+Discord
+</a>
 
 </body>
 </html>
