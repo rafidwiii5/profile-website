@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Rafi Links</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -17,7 +19,7 @@ font-family:Arial;
 }
 
 body{
-height:100vh;
+min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -32,20 +34,26 @@ color:white;
 text-align:center;
 z-index:2;
 width:90%;
-max-width:350px;
+max-width:380px;
 margin:auto;
+padding:20px;
 }
 
 /* profile photo */
 
 .profile img{
-width:170px;
-height:170px;
+width:190px;
+height:190px;
 object-fit:cover;
 border-radius:50%;
-border:5px solid white;
-box-shadow:0 0 25px rgba(255,255,255,0.4);
+border:6px solid white;
+box-shadow:0 0 30px rgba(255,255,255,0.5);
 margin-bottom:15px;
+transition:0.4s;
+}
+
+.profile img:hover{
+transform:scale(1.05);
 }
 
 .profile h1{
@@ -56,6 +64,7 @@ margin-bottom:5px;
 .tag{
 opacity:0.9;
 margin-bottom:25px;
+font-size:15px;
 }
 
 /* link buttons */
@@ -67,8 +76,8 @@ justify-content:center;
 gap:12px;
 
 width:100%;
-margin:10px 0;
-padding:14px;
+margin:12px 0;
+padding:15px;
 
 background:white;
 color:#333;
@@ -81,12 +90,12 @@ transition:0.25s;
 }
 
 .link:hover{
-transform:scale(1.05);
+transform:scale(1.06);
 background:#eaf3ff;
 }
 
 .link i{
-font-size:20px;
+font-size:22px;
 }
 
 /* social colors */
@@ -108,8 +117,37 @@ animation:float 12s linear infinite;
 }
 
 @keyframes float{
-0%{transform:translateY(100vh);}
-100%{transform:translateY(-20vh);}
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-20vh);
+opacity:0;
+}
+}
+
+/* responsive HP */
+
+@media(max-width:480px){
+
+.profile img{
+width:160px;
+height:160px;
+}
+
+.profile h1{
+font-size:24px;
+}
+
+.link{
+padding:13px;
+font-size:14px;
+}
+
 }
 
 </style>
@@ -121,7 +159,7 @@ animation:float 12s linear infinite;
 
 <div class="profile">
 
-<img src="https://i.imgur.com/yourphoto.jpg">
+<img src="foto.jpg">
 
 <h1>Rafi Dwi Kurniawan</h1>
 <div class="tag">Mahasiswa Teknik Industri</div>
@@ -161,6 +199,8 @@ animation:float 12s linear infinite;
 <div class="circle" style="width:35px;height:35px;left:45%;animation-duration:14s"></div>
 <div class="circle" style="width:20px;height:20px;left:60%;animation-duration:8s"></div>
 <div class="circle" style="width:50px;height:50px;left:80%;animation-duration:12s"></div>
+<div class="circle" style="width:30px;height:30px;left:70%;animation-duration:11s"></div>
+<div class="circle" style="width:45px;height:45px;left:35%;animation-duration:13s"></div>
 
 </body>
 </html>
