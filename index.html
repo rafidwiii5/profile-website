@@ -15,88 +15,109 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
+
+background:linear-gradient(135deg,#3a86ff,#74b9ff);
 min-height:100vh;
 display:flex;
-align-items:center;
 justify-content:center;
-background:linear-gradient(135deg,#2b7fff,#7cc4ff);
+align-items:center;
 overflow-x:hidden;
 color:white;
-padding:40px 0;
+
 }
 
 /* container */
 
 .container{
-text-align:center;
-z-index:2;
+
 width:90%;
 max-width:380px;
-margin:auto;
+text-align:center;
 padding:20px;
+z-index:2;
+
 }
 
-/* profile photo */
+/* profile */
 
 .profile img{
-width:190px;
-height:190px;
-object-fit:cover;
-border-radius:50%;
-border:6px solid white;
-box-shadow:0 0 30px rgba(255,255,255,0.5);
-margin-bottom:15px;
-transition:0.4s;
-}
 
-.profile img:hover{
-transform:scale(1.05);
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+
+border:5px solid white;
+
+box-shadow:0 0 25px rgba(255,255,255,0.5);
+
+margin-bottom:15px;
+
 }
 
 .profile h1{
-font-size:28px;
+
+font-size:26px;
 margin-bottom:5px;
+
 }
 
 .tag{
+
 opacity:0.9;
 margin-bottom:25px;
-font-size:15px;
+
 }
 
 /* link buttons */
 
 .link{
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 gap:12px;
 
 width:100%;
-margin:12px 0;
-padding:15px;
+
+margin:10px 0;
+
+padding:14px;
 
 background:white;
+
 color:#333;
 
 border-radius:14px;
+
 text-decoration:none;
+
 font-weight:bold;
 
+font-size:16px;
+
 transition:0.25s;
+
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
+
 }
 
 .link:hover{
-transform:scale(1.06);
-background:#eaf3ff;
+
+transform:scale(1.05);
+background:#eef5ff;
+
 }
 
 .link i{
-font-size:22px;
+
+font-size:20px;
+
 }
 
 /* social colors */
@@ -108,100 +129,97 @@ font-size:22px;
 .youtube i{color:#FF0000;}
 .linkedin i{color:#0A66C2;}
 
-/* floating circles */
+/* floating animation */
 
 .circle{
+
 position:absolute;
+
 border-radius:50%;
-background:rgba(255,255,255,0.12);
+
+background:rgba(255,255,255,0.15);
+
 animation:float 12s linear infinite;
+
 }
 
 @keyframes float{
+
 0%{
 transform:translateY(100vh);
-opacity:0;
 }
-20%{
-opacity:1;
-}
+
 100%{
 transform:translateY(-20vh);
-opacity:0;
-}
 }
 
-/* responsive HP */
+}
 
-@media(max-width:480px){
+/* responsive */
+
+@media (max-width:500px){
 
 .profile img{
-width:160px;
-height:160px;
-}
-
-.profile h1{
-font-size:24px;
-}
-
-.link{
-padding:13px;
-font-size:14px;
+width:120px;
+height:120px;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
+
 
 <div class="container">
 
 <div class="profile">
 
-<img src="foto.jpg">
+<img src="FOTO-KAMU.jpg">
 
 <h1>Rafi Dwi Kurniawan</h1>
+
 <div class="tag">Mahasiswa Teknik Industri</div>
 
 </div>
 
-<a class="https://www.instagram.com/rpiidka?igsh=MTgxMGJnbjg4bGgwdA==" href="#">
+
+<a class="link instagram" href="https://instagram.com/rpiidka">
 <i class="fa-brands fa-instagram"></i> Instagram
 </a>
 
-<a class="https://www.tiktok.com/@irappp5?_r=1&_t=ZS-94Sc2vGQ6MP" href="#">
+<a class="link tiktok" href="https://tiktok.com/@irapp5">
 <i class="fa-brands fa-tiktok"></i> TikTok
 </a>
 
-<a class="https://discordapp.com/users/rapiidka" href="#">
+<a class="link discord" href="https://discord.com/users/rapiidka">
 <i class="fa-brands fa-discord"></i> Discord
 </a>
 
-<a class="https://open.spotify.com/user/5i9h6e28bovq1grjbapj28vsh?si=2EcfGSezQmi3PEfxDhzZ3A" href="#">
+<a class="link spotify" href="https://open.spotify.com/user/5i9h6e28bovq1grjbapj28vsh?si=2EcfGSezQmi3PEfxDhzZ3A">
 <i class="fa-brands fa-spotify"></i> Spotify
 </a>
 
-<a class="https://youtube.com/@jebengg?si=RlSLf_RLGaXWJTGy" href="#">
+<a class="link youtube" href="https://youtube.com/@jebengg?si=RlSLf_RLGaXWJTGy">
 <i class="fa-brands fa-youtube"></i> YouTube
 </a>
 
-<a class="link linkedin" href="#">
+<a class="link linkedin" href="https://linkedin.com/in/USERNAME">
 <i class="fa-brands fa-linkedin"></i> LinkedIn
 </a>
 
 </div>
 
-<!-- background animation -->
 
-<div class="circle" style="width:40px;height:40px;left:10%;animation-duration:10s"></div>
-<div class="circle" style="width:25px;height:25px;left:25%;animation-duration:9s"></div>
-<div class="circle" style="width:35px;height:35px;left:45%;animation-duration:14s"></div>
+<!-- floating background -->
+
+<div class="circle" style="width:40px;height:40px;left:10%;animation-duration:9s"></div>
+<div class="circle" style="width:25px;height:25px;left:25%;animation-duration:7s"></div>
+<div class="circle" style="width:35px;height:35px;left:45%;animation-duration:11s"></div>
 <div class="circle" style="width:20px;height:20px;left:60%;animation-duration:8s"></div>
 <div class="circle" style="width:50px;height:50px;left:80%;animation-duration:12s"></div>
-<div class="circle" style="width:30px;height:30px;left:70%;animation-duration:11s"></div>
-<div class="circle" style="width:45px;height:45px;left:35%;animation-duration:13s"></div>
 
 </body>
 </html>
