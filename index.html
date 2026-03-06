@@ -1,52 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>Rafi Link</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
 
+body{
+font-family:Arial;
+text-align:center;
+background:linear-gradient(135deg,#4da6ff,#80c1ff);
+color:white;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:0;
+overflow:hidden;
+}
+
+.container{
+z-index:2;
+}
+
+img{
+width:120px;
+border-radius:50%;
+margin-bottom:15px;
+border:3px solid white;
+}
+
+h1{
+margin:10px 0;
+}
+
+.tag{
+opacity:0.8;
+margin-bottom:25px;
+}
+
+.link{
+display:block;
+width:220px;
+margin:10px auto;
+padding:12px;
+border-radius:10px;
+background:white;
+color:#333;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.link:hover{
+transform:scale(1.05);
+background:#e6f2ff;
+}
+
+.link i{
+margin-right:8px;
+}
+
+/* floating icons */
+
+.icon{
+position:absolute;
+font-size:25px;
+opacity:0.15;
+animation:float 12s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-10vh)}
+}
+
+</style>
 </head>
 
 <body>
 
-<div id="particles-js"></div>
-
 <div class="container">
 
-<img src="foto.jpg" class="profile">
+<img src="https://i.imgur.com/yourphoto.png">
 
 <h1>Rafi Dwi Kurniawan</h1>
-<p class="bio">#anakbuahbjorka</p>
 
-<div class="links">
+<div class="tag">#anakbuahbjorka</div>
 
-<a href="https://instagram.com/rpiidka">
-<i class="fab fa-instagram"></i> Instagram
+<a class="link" href="https://instagram.com/USERNAME">
+<i class="fa-brands fa-instagram"></i>Instagram
 </a>
 
-<a href="https://tiktok.com/@irappp5">
-<i class="fab fa-tiktok"></i> TikTok
+<a class="link" href="https://tiktok.com/@USERNAME">
+<i class="fa-brands fa-tiktok"></i>TikTok
 </a>
 
-<a href="https://discord.com/users/rapiidka">
-<i class="fab fa-discord"></i> Discord
+<a class="link" href="https://discord.com/users/USERNAME">
+<i class="fa-brands fa-discord"></i>Discord
 </a>
 
-<a href="https://spotify.com/user/jebeng">
-<i class="fab fa-spotify"></i> Spotify
+<a class="link" href="https://open.spotify.com/user/USERNAME">
+<i class="fa-brands fa-spotify"></i>Spotify
 </a>
 
 </div>
 
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-
-<script src="particles.js"></script>
+<i class="fa-brands fa-instagram icon" style="left:10%;animation-delay:0s"></i>
+<i class="fa-brands fa-tiktok icon" style="left:30%;animation-delay:3s"></i>
+<i class="fa-brands fa-discord icon" style="left:60%;animation-delay:6s"></i>
+<i class="fa-brands fa-spotify icon" style="left:80%;animation-delay:9s"></i>
 
 </body>
 </html>
