@@ -12,16 +12,26 @@ color:white;
 text-align:center;
 overflow:hidden;
 
-/* background gradient bergerak */
 background:linear-gradient(-45deg,#0f172a,#1e3a8a,#2563eb,#38bdf8);
 background-size:400% 400%;
-animation:gradient 12s ease infinite;
+animation:bg 12s ease infinite;
 }
 
-@keyframes gradient{
+@keyframes bg{
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
+}
+
+/* particles */
+
+#particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
 }
 
 .container{
@@ -36,16 +46,28 @@ border:4px solid white;
 box-shadow:0 0 20px #38bdf8;
 }
 
-h1{
-margin-top:15px;
+/* typing effect */
+
+.typing{
 font-size:28px;
+font-weight:bold;
+border-right:3px solid white;
+display:inline-block;
+padding-right:5px;
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+0%{border-color:white;}
+50%{border-color:transparent;}
+100%{border-color:white;}
 }
 
 p{
 color:#dbeafe;
 }
 
-/* tombol sosmed */
+/* buttons */
 
 .link{
 display:flex;
@@ -78,16 +100,18 @@ background:#38bdf8;
 }
 
 </style>
-
 </head>
 
 <body>
+
+<canvas id="particles"></canvas>
 
 <div class="container">
 
 <img class="profile" src="https://i.imgur.com/2DhmtJ4.png">
 
-<h1>Rafi Dwi Kurniawan</h1>
+<h1 class="typing" id="name"></h1>
+
 <p>Mahasiswa Teknik Industri UNSIKA</p>
 
 <a class="link" href="https://instagram.com/username">
@@ -116,6 +140,70 @@ Discord
 </a>
 
 </div>
+
+<script>
+
+/* typing animation */
+
+const text="Rafi Dwi Kurniawan";
+let i=0;
+
+function type(){
+if(i<text.length){
+document.getElementById("name").innerHTML+=text.charAt(i);
+i++;
+setTimeout(type,80);
+}
+}
+
+type();
+
+/* particles */
+
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+r:Math.random()*2,
+d:Math.random()*1
+});
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="rgba(255,255,255,0.5)";
+
+for(let i=0;i<particles.length;i++){
+let p=particles[i];
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
+ctx.fill();
+
+p.y+=p.d;
+
+if(p.y>canvas.height){
+p.y=0;
+p.x=Math.random()*canvas.width;
+}
+
+}
+
+requestAnimationFrame(draw);
+}
+
+draw();
+
+</script>
 
 </body>
 </html>
