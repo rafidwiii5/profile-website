@@ -20,7 +20,10 @@ font-family:Arial, Helvetica, sans-serif;
 
 body{
 
-background:linear-gradient(135deg,#3a86ff,#74b9ff);
+background:linear-gradient(-45deg,#3a86ff,#5f9cff,#74b9ff,#6c5ce7);
+background-size:400% 400%;
+animation:gradientMove 12s ease infinite;
+
 min-height:100vh;
 display:flex;
 justify-content:center;
@@ -28,6 +31,12 @@ align-items:center;
 overflow-x:hidden;
 color:white;
 
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
 }
 
 /* container */
@@ -39,6 +48,7 @@ max-width:380px;
 text-align:center;
 padding:20px;
 z-index:2;
+animation:fadeUp 1s ease;
 
 }
 
@@ -53,9 +63,18 @@ object-fit:cover;
 
 border:5px solid white;
 
-box-shadow:0 0 25px rgba(255,255,255,0.5);
+box-shadow:0 0 35px rgba(255,255,255,0.6);
 
 margin-bottom:15px;
+
+transition:0.4s;
+
+}
+
+.profile img:hover{
+
+transform:scale(1.07);
+box-shadow:0 0 60px rgba(255,255,255,0.9);
 
 }
 
@@ -68,6 +87,17 @@ margin-bottom:5px;
 
 .tag{
 
+opacity:0.9;
+margin-bottom:25px;
+line-height:1.4;
+
+}
+
+/* about */
+
+.about{
+
+font-size:14px;
 opacity:0.9;
 margin-bottom:25px;
 
@@ -85,15 +115,19 @@ gap:12px;
 
 width:100%;
 
-margin:10px 0;
+margin:12px 0;
 
-padding:14px;
+padding:15px;
 
-background:white;
+background:rgba(255,255,255,0.15);
 
-color:#333;
+backdrop-filter:blur(15px);
 
-border-radius:14px;
+border:1px solid rgba(255,255,255,0.3);
+
+color:white;
+
+border-radius:16px;
 
 text-decoration:none;
 
@@ -103,20 +137,49 @@ font-size:16px;
 
 transition:0.25s;
 
-box-shadow:0 6px 15px rgba(0,0,0,0.15);
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+
+animation:fadeUp 0.8s ease;
 
 }
 
 .link:hover{
 
-transform:scale(1.05);
-background:#eef5ff;
+transform:translateY(-5px) scale(1.03);
+
+background:rgba(255,255,255,0.25);
 
 }
 
 .link i{
 
 font-size:20px;
+
+}
+
+/* social icon bar */
+
+.social{
+
+margin-top:20px;
+
+}
+
+.social i{
+
+font-size:20px;
+
+margin:0 10px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.social i:hover{
+
+transform:scale(1.4);
 
 }
 
@@ -128,6 +191,16 @@ font-size:20px;
 .spotify i{color:#1DB954;}
 .youtube i{color:#FF0000;}
 .linkedin i{color:#0A66C2;}
+
+/* visitor */
+
+.visitor{
+
+margin-top:15px;
+font-size:13px;
+opacity:0.8;
+
+}
 
 /* floating animation */
 
@@ -155,6 +228,22 @@ transform:translateY(-20vh);
 
 }
 
+/* animation */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
 /* responsive */
 
 @media (max-width:500px){
@@ -177,13 +266,20 @@ height:120px;
 
 <div class="profile">
 
-<img src="foto.jpg.jpeg">
+<img src="foto.jpg">
 
 <h1>Rafi Dwi Kurniawan</h1>
 
-<div class="tag">Mahasiswa Teknik Industri 
-Universitas Singaperbangsa Karawang</div>
+<div class="tag">
+Mahasiswa Teknik Industri<br>
+Universitas Singaperbangsa Karawang
+</div>
 
+</div>
+
+<div class="about">
+Hi! I'm Rafi 👋<br>
+I like tech, design, and building digital projects.
 </div>
 
 
@@ -199,19 +295,33 @@ Universitas Singaperbangsa Karawang</div>
 <i class="fa-brands fa-discord"></i> Discord
 </a>
 
-<a class="link spotify" href="https://open.spotify.com/user/5i9h6e28bovq1grjbapj28vsh?si=2EcfGSezQmi3PEfxDhzZ3A">
+<a class="link spotify" href="https://open.spotify.com/user/5i9h6e28bovq1grjbapj28vsh">
 <i class="fa-brands fa-spotify"></i> Spotify
 </a>
 
-<a class="link youtube" href="https://youtube.com/@jebengg?si=RlSLf_RLGaXWJTGy">
+<a class="link youtube" href="https://youtube.com/@jebengg">
 <i class="fa-brands fa-youtube"></i> YouTube
 </a>
 
-<a class="link linkedin" href="https://www.linkedin.com/in/rafi-dwi-kurniawan-4a3220189/
-
-">
+<a class="link linkedin" href="https://www.linkedin.com/in/rafi-dwi-kurniawan-4a3220189/">
 <i class="fa-brands fa-linkedin"></i> LinkedIn
 </a>
+
+
+<div class="social">
+
+<i class="fa-brands fa-instagram"></i>
+<i class="fa-brands fa-tiktok"></i>
+<i class="fa-brands fa-discord"></i>
+<i class="fa-brands fa-spotify"></i>
+
+</div>
+
+<div class="visitor">
+
+👀 Visitor: <span id="count">0</span>
+
+</div>
 
 </div>
 
@@ -223,6 +333,27 @@ Universitas Singaperbangsa Karawang</div>
 <div class="circle" style="width:35px;height:35px;left:45%;animation-duration:11s"></div>
 <div class="circle" style="width:20px;height:20px;left:60%;animation-duration:8s"></div>
 <div class="circle" style="width:50px;height:50px;left:80%;animation-duration:12s"></div>
+<div class="circle" style="width:30px;height:30px;left:15%;animation-duration:10s"></div>
+<div class="circle" style="width:45px;height:45px;left:70%;animation-duration:14s"></div>
+
+
+<script>
+
+/* visitor counter */
+
+let count = localStorage.getItem("visits")
+
+if(count == null){
+count = 1
+}else{
+count++
+}
+
+localStorage.setItem("visits",count)
+
+document.getElementById("count").innerText = count
+
+</script>
 
 </body>
 </html>
