@@ -26,24 +26,26 @@ display:flex;
 justify-content:center;
 align-items:center;
 
-background:#111;
+background:#0f172a;
 
 }
 
-/* PHONE */
+/* BODY IPHONE */
 
 .phone{
 
-width:320px;
-height:640px;
+width:330px;
+height:680px;
 
-border-radius:40px;
+background:#000;
 
-background:black;
+border-radius:50px;
 
-padding:10px;
+padding:12px;
 
-box-shadow:0 30px 80px rgba(0,0,0,.7);
+box-shadow:0 40px 100px rgba(0,0,0,.8);
+
+position:relative;
 
 }
 
@@ -54,9 +56,9 @@ box-shadow:0 30px 80px rgba(0,0,0,.7);
 width:100%;
 height:100%;
 
-border-radius:32px;
+border-radius:40px;
 
-background:url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e")
+background:url("https://images.unsplash.com/photo-1614850523011-8f49ffc73908")
 center/cover;
 
 padding:20px;
@@ -69,11 +71,32 @@ overflow:hidden;
 
 }
 
+/* DYNAMIC ISLAND */
+
+.island{
+
+width:120px;
+height:30px;
+
+background:black;
+
+border-radius:20px;
+
+position:absolute;
+
+top:10px;
+left:50%;
+
+transform:translateX(-50%);
+
+}
+
 /* PROFILE */
 
 .profile{
 
 text-align:center;
+margin-top:40px;
 margin-bottom:30px;
 
 }
@@ -113,7 +136,7 @@ cursor:pointer;
 width:60px;
 height:60px;
 
-border-radius:16px;
+border-radius:18px;
 
 display:flex;
 align-items:center;
@@ -124,9 +147,29 @@ margin-bottom:6px;
 
 font-size:24px;
 
+background:rgba(255,255,255,0.25);
+
+backdrop-filter:blur(12px);
+
+}
+
+/* DOCK */
+
+.dock{
+
+position:absolute;
+
+bottom:10px;
+left:10px;
+right:10px;
+
+height:70px;
+
 background:rgba(255,255,255,0.2);
 
-backdrop-filter:blur(10px);
+backdrop-filter:blur(15px);
+
+border-radius:25px;
 
 }
 
@@ -206,6 +249,8 @@ margin-bottom:15px;
 
 <div class="screen">
 
+<div class="island"></div>
+
 <!-- HOME -->
 
 <div id="home">
@@ -251,6 +296,8 @@ margin-bottom:15px;
 </div>
 
 </div>
+
+<div class="dock"></div>
 
 <!-- SOCIAL PAGE -->
 
