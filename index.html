@@ -7,15 +7,13 @@
 <style>
 
 body{
-background:#0f0f0f;
+background:#111;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
 font-family:sans-serif;
 }
-
-/* PHONE */
 
 .phone{
 width:320px;
@@ -38,19 +36,12 @@ flex-direction:column;
 align-items:center;
 justify-content:space-between;
 color:white;
-transition:0.6s;
+transition:0.8s;
 }
 
 .time{
 font-size:70px;
-margin-top:80px;
-}
-
-/* swipe bar */
-
-.swipeArea{
-text-align:center;
-margin-bottom:20px;
+margin-top:90px;
 }
 
 .bar{
@@ -58,27 +49,7 @@ width:120px;
 height:5px;
 background:white;
 border-radius:5px;
-margin:auto;
-margin-bottom:6px;
-}
-
-/* fingerprint */
-
-.fingerprint{
-position:absolute;
-bottom:90px;
-text-align:center;
-cursor:pointer;
-}
-
-.fingerprint img{
-width:70px;
-opacity:0.8;
-transition:0.3s;
-}
-
-.fingerprint img:active{
-transform:scale(0.9);
+margin-bottom:40px;
 }
 
 /* HOME */
@@ -93,7 +64,7 @@ grid-template-columns:repeat(4,1fr);
 gap:18px;
 padding:110px 18px;
 opacity:0;
-transition:0.6s;
+transition:0.8s;
 }
 
 .app{
@@ -105,10 +76,9 @@ font-size:12px;
 .app img{
 width:60px;
 border-radius:18px;
-cursor:pointer;
 }
 
-/* UNLOCK */
+/* ANIMATION */
 
 .unlock #lockscreen{
 transform:translateY(-100%);
@@ -126,21 +96,9 @@ opacity:1;
 <div class="phone" id="phone">
 
 <div id="lockscreen">
-
 <div class="time">09:41</div>
-
-<div class="fingerprint" onclick="unlock()">
-<img src="https://cdn-icons-png.flaticon.com/512/565/565547.png">
-<p>Touch</p>
-</div>
-
-<div class="swipeArea">
 <div class="bar"></div>
-<p>Swipe up</p>
 </div>
-
-</div>
-
 
 <div id="home">
 
@@ -183,29 +141,11 @@ opacity:1;
 
 </div>
 
-
 <script>
 
-let phone = document.getElementById("phone")
-let lockscreen = document.getElementById("lockscreen")
-
-function unlock(){
-phone.classList.add("unlock")
-}
-
-let startY = 0
-
-lockscreen.addEventListener("touchstart", e=>{
-startY = e.touches[0].clientY
-})
-
-lockscreen.addEventListener("touchend", e=>{
-let endY = e.changedTouches[0].clientY
-
-if(startY - endY > 80){
-unlock()
-}
-})
+setTimeout(()=>{
+document.getElementById("phone").classList.add("unlock")
+},2000)
 
 </script>
 
