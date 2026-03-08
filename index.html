@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rafi iPhone</title>
+<title>Rafi OS</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -35,16 +35,16 @@ background:#111;
 
 .phone{
 
-width:330px;
-height:670px;
+width:340px;
+height:690px;
 
-border-radius:50px;
+border-radius:55px;
 
 padding:12px;
 
-background:#000;
+background:black;
 
-box-shadow:0 30px 90px rgba(0,0,0,.7);
+box-shadow:0 30px 100px rgba(0,0,0,.8);
 
 }
 
@@ -55,22 +55,39 @@ box-shadow:0 30px 90px rgba(0,0,0,.7);
 width:100%;
 height:100%;
 
-border-radius:40px;
+border-radius:45px;
 
-background:url("https://images.unsplash.com/photo-1603575448878-868a20723f6d")
+background:url("https://images.unsplash.com/photo-1605100804763-247f67b3557e")
 center/cover;
 
-padding:18px;
-
-color:white;
+padding:20px;
 
 position:relative;
 
 overflow:hidden;
 
+color:white;
+
 }
 
-/* status bar */
+/* dynamic island */
+
+.island{
+
+width:120px;
+height:28px;
+
+background:black;
+
+border-radius:20px;
+
+margin:auto;
+
+margin-bottom:10px;
+
+}
+
+/* status */
 
 .status{
 
@@ -88,14 +105,14 @@ margin-bottom:20px;
 .profile{
 
 text-align:center;
-margin-bottom:25px;
+margin-bottom:20px;
 
 }
 
 .profile img{
 
-width:70px;
-height:70px;
+width:75px;
+height:75px;
 
 border-radius:50%;
 
@@ -103,17 +120,17 @@ border:2px solid white;
 
 }
 
-/* apps */
+/* apps grid */
 
 .apps{
 
 display:grid;
 
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(4,1fr);
 
-gap:22px;
+gap:18px;
 
-margin-top:10px;
+margin-top:15px;
 
 }
 
@@ -137,7 +154,7 @@ transform:scale(1.1);
 width:60px;
 height:60px;
 
-border-radius:18px;
+border-radius:16px;
 
 display:flex;
 align-items:center;
@@ -147,6 +164,8 @@ font-size:26px;
 
 margin:auto;
 margin-bottom:5px;
+
+color:white;
 
 }
 
@@ -168,11 +187,11 @@ bottom:15px;
 left:10px;
 right:10px;
 
-background:rgba(255,255,255,.2);
+background:rgba(255,255,255,.25);
 
-backdrop-filter:blur(15px);
+backdrop-filter:blur(20px);
 
-border-radius:25px;
+border-radius:30px;
 
 padding:10px;
 
@@ -181,19 +200,11 @@ justify-content:space-around;
 
 }
 
-.dock .icon{
-
-width:50px;
-height:50px;
-
-}
-
-/* pages */
+/* page */
 
 .page{
 
 position:absolute;
-
 top:0;
 left:0;
 
@@ -207,7 +218,7 @@ padding:20px;
 transform:scale(.9);
 opacity:0;
 
-transition:.3s;
+transition:.35s;
 
 }
 
@@ -218,7 +229,7 @@ opacity:1;
 
 }
 
-/* links */
+/* social links */
 
 .links{
 
@@ -252,7 +263,7 @@ align-items:center;
 
 .back{
 
-margin-bottom:10px;
+margin-bottom:15px;
 cursor:pointer;
 
 }
@@ -267,11 +278,11 @@ cursor:pointer;
 
 <div class="screen">
 
-<!-- STATUS -->
+<div class="island"></div>
 
 <div class="status">
 
-<div>17:21</div>
+<div>17:41</div>
 
 <div>
 <i class="fa-solid fa-wifi"></i>
@@ -280,15 +291,11 @@ cursor:pointer;
 
 </div>
 
-<!-- PROFILE -->
-
 <div class="profile">
 
-<img src="https://i.pravatar.cc/150?img=12">
+<img src="FOTO-KAMU.jpg">
 
 </div>
-
-<!-- APPS -->
 
 <div class="apps">
 
@@ -324,7 +331,7 @@ cursor:pointer;
 
 </div>
 
-<!-- DOCK -->
+<!-- dock -->
 
 <div class="dock">
 
@@ -355,38 +362,32 @@ onclick="openPage('social')">
 
 <div class="links">
 
-<a class="link"
-href="https://instagram.com/rpiidka">
+<a class="link" href="https://instagram.com/rpiidka">
 <i class="fa-brands fa-instagram"></i>
 Instagram
 </a>
 
-<a class="link"
-href="https://tiktok.com/@irappp5">
+<a class="link" href="https://tiktok.com/@irappp5">
 <i class="fa-brands fa-tiktok"></i>
 TikTok
 </a>
 
-<a class="link"
-href="https://discord.com/users/rapiidka">
+<a class="link" href="https://discord.com/users/rapiidka">
 <i class="fa-brands fa-discord"></i>
 Discord
 </a>
 
-<a class="link"
-href="https://open.spotify.com">
+<a class="link" href="https://open.spotify.com">
 <i class="fa-brands fa-spotify"></i>
 Spotify
 </a>
 
-<a class="link"
-href="https://youtube.com/@jebengg">
+<a class="link" href="https://youtube.com/@jebengg">
 <i class="fa-brands fa-youtube"></i>
 YouTube
 </a>
 
-<a class="link"
-href="https://linkedin.com">
+<a class="link" href="https://linkedin.com">
 <i class="fa-brands fa-linkedin"></i>
 LinkedIn
 </a>
