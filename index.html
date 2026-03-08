@@ -1,12 +1,9 @@
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Social Hub</title>
 
 <style>
 
@@ -20,14 +17,14 @@ height:100vh;
 font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
-/* PHONE SCALE RESPONSIVE */
+/* SCALE */
 
-.phoneWrapper{
-transform:scale(.9);
+.phoneWrap{
+transform:scale(.75);
 }
 
 @media (max-width:600px){
-.phoneWrapper{
+.phoneWrap{
 transform:scale(1);
 }
 }
@@ -36,12 +33,11 @@ transform:scale(1);
 
 .phone{
 width:360px;
-height:760px;
+height:780px;
 border-radius:50px;
 overflow:hidden;
 position:relative;
-box-shadow:0 30px 80px rgba(0,0,0,0.8);
-background:black;
+box-shadow:0 40px 90px rgba(0,0,0,0.8);
 }
 
 /* WALLPAPER */
@@ -50,7 +46,8 @@ background:black;
 position:absolute;
 width:100%;
 height:100%;
-background:url("https://images.unsplash.com/photo-1603539947678-cd3954ed515d") center/cover;
+background:url("https://images.unsplash.com/photo-1519608487953-e999c86e7455") center/cover;
+filter:brightness(.9);
 }
 
 /* STATUS BAR */
@@ -67,7 +64,7 @@ font-size:14px;
 z-index:10;
 }
 
-/* DYNAMIC ISLAND */
+/* ISLAND */
 
 .island{
 position:absolute;
@@ -102,7 +99,7 @@ margin-top:100px;
 .swipe{
 position:absolute;
 bottom:50px;
-font-size:14px;
+font-size:13px;
 opacity:.8;
 }
 
@@ -112,7 +109,7 @@ opacity:.8;
 position:absolute;
 width:100%;
 height:100%;
-padding:120px 28px;
+padding:120px 32px;
 box-sizing:border-box;
 display:none;
 }
@@ -120,43 +117,50 @@ display:none;
 .apps{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:26px;
+gap:22px;
 }
 
 .app{
 text-align:center;
 color:white;
-font-size:12px;
+font-size:11px;
 }
 
+/* ICON */
+
 .icon{
-width:66px;
-height:66px;
-border-radius:18px;
+width:54px;
+height:54px;
+border-radius:16px;
 margin:auto;
 display:flex;
 align-items:center;
 justify-content:center;
-box-shadow:0 6px 16px rgba(0,0,0,0.4);
 background:white;
+box-shadow:0 4px 10px rgba(0,0,0,0.25);
+}
+
+.icon img{
+width:28px;
+height:28px;
 }
 
 /* DOCK */
 
 .dock{
 position:absolute;
-bottom:30px;
+bottom:28px;
 left:50%;
 transform:translateX(-50%);
-width:85%;
-height:80px;
-border-radius:28px;
+width:86%;
+height:68px;
+border-radius:24px;
 background:rgba(255,255,255,0.25);
 backdrop-filter:blur(20px);
 display:flex;
 justify-content:center;
 align-items:center;
-gap:30px;
+gap:26px;
 }
 
 /* HOME BAR */
@@ -172,17 +176,12 @@ background:white;
 border-radius:10px;
 }
 
-.icon img{
-width:34px;
-height:34px;
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="phoneWrapper">
+<div class="phoneWrap">
 
 <div class="phone">
 
@@ -256,65 +255,5 @@ Spotify
 <div class="dock">
 
 <a href="https://instagram.com" target="_blank">
-<div class="icon">
-<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-</div>
-</a>
-
-<a href="https://tiktok.com" target="_blank">
-<div class="icon">
-<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
-</div>
-</a>
-
-<a href="https://youtube.com" target="_blank">
-<div class="icon">
-<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
-</div>
-</a>
-
-</div>
-
-</div>
-
-<div class="homebar"></div>
-
-</div>
-</div>
-
-<script>
-
-function updateTime(){
-
-let now=new Date()
-let h=now.getHours().toString().padStart(2,"0")
-let m=now.getMinutes().toString().padStart(2,"0")
-
-document.getElementById("time").innerText=h+":"+m
-document.getElementById("timeSmall").innerText=h+":"+m
-
-}
-
-setInterval(updateTime,1000)
-updateTime()
-
-setTimeout(()=>{
-
-let lock=document.getElementById("lock")
-let home=document.getElementById("home")
-
-lock.style.transition="1s"
-lock.style.transform="translateY(-100%)"
-
-setTimeout(()=>{
-lock.style.display="none"
-home.style.display="block"
-},800)
-
-},2000)
-
-</script>
-
-</body>
-</html>
+<div
 ```
