@@ -1,362 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Rafi Phone</title>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>My Phone</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI";
-}
-
 body{
-
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-
-background:#0f172a;
-
+  background:#111;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family:sans-serif;
 }
-
-/* BODY IPHONE */
 
 .phone{
-
-width:330px;
-height:680px;
-
-background:#000;
-
-border-radius:50px;
-
-padding:12px;
-
-box-shadow:0 40px 100px rgba(0,0,0,.8);
-
-position:relative;
-
+  width:320px;
+  height:650px;
+  border-radius:40px;
+  border:10px solid black;
+  overflow:hidden;
+  position:relative;
+  background:black;
 }
 
-/* SCREEN */
+/* LOCK SCREEN */
 
-.screen{
-
-width:100%;
-height:100%;
-
-border-radius:40px;
-
-background:url("https://images.unsplash.com/photo-1614850523011-8f49ffc73908")
-center/cover;
-
-padding:20px;
-
-color:white;
-
-position:relative;
-
-overflow:hidden;
-
+#lockscreen{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:url("https://images.unsplash.com/photo-1607789503313-3d96a3e2c9c4") center/cover;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  color:white;
+  transition:0.5s;
 }
 
-/* DYNAMIC ISLAND */
-
-.island{
-
-width:120px;
-height:30px;
-
-background:black;
-
-border-radius:20px;
-
-position:absolute;
-
-top:10px;
-left:50%;
-
-transform:translateX(-50%);
-
+.time{
+  margin-top:80px;
+  font-size:60px;
 }
 
-/* PROFILE */
-
-.profile{
-
-text-align:center;
-margin-top:40px;
-margin-bottom:30px;
-
+.swipe{
+  margin-bottom:40px;
+  font-size:14px;
+  opacity:0.8;
 }
 
-.profile img{
+/* HOME SCREEN */
 
-width:70px;
-height:70px;
-
-border-radius:50%;
-
-border:2px solid white;
-
-}
-
-/* APPS */
-
-.apps{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:20px;
-
+#home{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:url("https://images.unsplash.com/photo-1607789503313-3d96a3e2c9c4") center/cover;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  padding:100px 20px;
+  opacity:0;
+  transition:0.5s;
 }
 
 .app{
-
-text-align:center;
-cursor:pointer;
-
+  text-align:center;
+  color:white;
+  font-size:12px;
 }
 
-.icon{
-
-width:60px;
-height:60px;
-
-border-radius:18px;
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-margin:auto;
-margin-bottom:6px;
-
-font-size:24px;
-
-background:rgba(255,255,255,0.25);
-
-backdrop-filter:blur(12px);
-
+.app img{
+  width:60px;
+  border-radius:15px;
+  cursor:pointer;
 }
 
-/* DOCK */
+/* active */
 
-.dock{
-
-position:absolute;
-
-bottom:10px;
-left:10px;
-right:10px;
-
-height:70px;
-
-background:rgba(255,255,255,0.2);
-
-backdrop-filter:blur(15px);
-
-border-radius:25px;
-
+.unlock #lockscreen{
+  transform:translateY(-100%);
 }
 
-/* SOCIAL PAGE */
-
-.page{
-
-position:absolute;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:#0f172a;
-
-padding:20px;
-
-transform:translateX(100%);
-
-transition:.35s;
-
+.unlock #home{
+  opacity:1;
 }
-
-.page.active{
-
-transform:translateX(0);
-
-}
-
-/* LINKS */
-
-.links{
-
-margin-top:20px;
-
-display:flex;
-flex-direction:column;
-
-gap:12px;
-
-}
-
-.link{
-
-background:#1e293b;
-
-padding:12px;
-
-border-radius:12px;
-
-text-decoration:none;
-
-color:white;
-
-display:flex;
-gap:10px;
-
-align-items:center;
-
-}
-
-.back{
-
-cursor:pointer;
-margin-bottom:15px;
-
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="phone">
+<div class="phone" id="phone">
 
-<div class="screen">
-
-<div class="island"></div>
-
-<!-- HOME -->
+<div id="lockscreen">
+<div class="time">09:41</div>
+<div class="swipe">Swipe up to unlock</div>
+</div>
 
 <div id="home">
 
-<div class="profile">
-
-<img src="https://i.pravatar.cc/150?img=12">
-
-</div>
-
-<div class="apps">
-
-<div class="app" onclick="openPage()">
-<div class="icon"><i class="fa-solid fa-share-nodes"></i></div>
-<p>Social</p>
+<div class="app">
+<a href="https://instagram.com/USERNAME">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</a>
+<p>Instagram</p>
 </div>
 
 <div class="app">
-<div class="icon"><i class="fa-solid fa-image"></i></div>
-<p>Gallery</p>
+<a href="https://tiktok.com/@USERNAME">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png">
+</a>
+<p>TikTok</p>
 </div>
 
 <div class="app">
-<div class="icon"><i class="fa-solid fa-music"></i></div>
-<p>Music</p>
+<a href="https://youtube.com/@USERNAME">
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+</a>
+<p>YouTube</p>
 </div>
 
 <div class="app">
-<div class="icon"><i class="fa-solid fa-note-sticky"></i></div>
-<p>Notes</p>
+<a href="https://linkedin.com/in/USERNAME">
+<img src="https://cdn-icons-png.flaticon.com/512/145/145807.png">
+</a>
+<p>LinkedIn</p>
 </div>
 
 <div class="app">
-<div class="icon"><i class="fa-solid fa-user"></i></div>
-<p>About</p>
-</div>
-
-<div class="app">
-<div class="icon"><i class="fa-solid fa-gear"></i></div>
-<p>Settings</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="dock"></div>
-
-<!-- SOCIAL PAGE -->
-
-<div id="social" class="page">
-
-<div class="back" onclick="closePage()">← Back</div>
-
-<h3>My Socials</h3>
-
-<div class="links">
-
-<a class="link" href="https://instagram.com/rpiidka">
-<i class="fa-brands fa-instagram"></i>
-Instagram
+<a href="https://open.spotify.com/user/USERNAME">
+<img src="https://cdn-icons-png.flaticon.com/512/174/174872.png">
 </a>
-
-<a class="link" href="https://tiktok.com/@irappp5">
-<i class="fa-brands fa-tiktok"></i>
-TikTok
-</a>
-
-<a class="link" href="https://discord.com/users/rapiidka">
-<i class="fa-brands fa-discord"></i>
-Discord
-</a>
-
-<a class="link" href="https://open.spotify.com">
-<i class="fa-brands fa-spotify"></i>
-Spotify
-</a>
-
-<a class="link" href="https://youtube.com/@jebengg">
-<i class="fa-brands fa-youtube"></i>
-YouTube
-</a>
-
-<a class="link" href="https://linkedin.com">
-<i class="fa-brands fa-linkedin"></i>
-LinkedIn
-</a>
-
+<p>Spotify</p>
 </div>
 
 </div>
-
-</div>
-
 </div>
 
 <script>
+let phone = document.getElementById("phone")
 
-function openPage(){
-document.getElementById("social").classList.add("active")
-}
-
-function closePage(){
-document.getElementById("social").classList.remove("active")
-}
-
+document.getElementById("lockscreen").addEventListener("click",()=>{
+phone.classList.add("unlock")
+})
 </script>
 
 </body>
