@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rafi App</title>
+<title>Rafi</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -16,32 +17,37 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family: 'Inter', sans-serif;
 }
 
-/* background laptop */
+/* background */
 
 body{
-background:linear-gradient(135deg,#3a86ff,#74b9ff);
+
 height:100vh;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
+background: radial-gradient(circle at top,#1f2937,#020617);
+
 }
 
-/* phone frame */
+/* phone */
 
 .phone{
 
-width:420px;
-height:760px;
+width:320px;
+height:640px;
 
-background:#111;
-border-radius:50px;
+background:#0f172a;
 
-padding:14px;
+border-radius:35px;
 
-box-shadow:0 30px 80px rgba(0,0,0,0.5);
+padding:10px;
+
+box-shadow:0 20px 60px rgba(0,0,0,0.7);
 
 }
 
@@ -52,55 +58,46 @@ box-shadow:0 30px 80px rgba(0,0,0,0.5);
 width:100%;
 height:100%;
 
-background:#f5f5f5;
-border-radius:40px;
+border-radius:28px;
+
+background:rgba(255,255,255,0.04);
+
+backdrop-filter:blur(15px);
+
+padding:20px;
 
 overflow-y:auto;
 
 }
 
-/* status bar */
+/* profile */
 
-.status{
+.profile{
 
-display:flex;
-justify-content:space-between;
-
-padding:10px 18px;
-font-size:14px;
-font-weight:bold;
+text-align:center;
+margin-bottom:30px;
 
 }
 
-/* header */
+.profile img{
 
-.header{
+width:80px;
+height:80px;
 
-padding:15px 20px;
-
-}
-
-.header h2{
-
-font-size:20px;
+border-radius:50%;
 margin-bottom:10px;
 
 }
 
-/* search */
+.profile h2{
+font-size:18px;
+color:white;
+}
 
-.search{
+.profile p{
 
-background:white;
-border-radius:15px;
-
-padding:10px;
-
-display:flex;
-align-items:center;
-gap:10px;
-
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
+font-size:13px;
+color:#9ca3af;
 
 }
 
@@ -108,7 +105,9 @@ box-shadow:0 3px 10px rgba(0,0,0,0.1);
 
 .links{
 
-padding:20px;
+display:flex;
+flex-direction:column;
+gap:12px;
 
 }
 
@@ -116,37 +115,36 @@ padding:20px;
 
 display:flex;
 align-items:center;
-gap:15px;
+gap:12px;
 
-background:white;
+padding:14px;
 
-padding:15px;
+border-radius:14px;
 
-margin-bottom:12px;
-
-border-radius:15px;
+background:rgba(255,255,255,0.05);
 
 text-decoration:none;
-color:#333;
 
-box-shadow:0 4px 12px rgba(0,0,0,0.1);
+color:white;
 
-transition:.2s;
+font-size:14px;
+
+transition:0.2s;
 
 }
 
 .link:hover{
-transform:scale(1.02);
+
+transform:scale(1.03);
+background:rgba(255,255,255,0.09);
+
 }
 
-/* icons */
+.link i{
 
-.instagram i{color:#E1306C}
-.tiktok i{color:#000}
-.discord i{color:#5865F2}
-.spotify i{color:#1DB954}
-.youtube i{color:#FF0000}
-.linkedin i{color:#0A66C2}
+font-size:18px;
+
+}
 
 </style>
 
@@ -158,82 +156,41 @@ transform:scale(1.02);
 
 <div class="screen">
 
-<!-- status bar -->
+<div class="profile">
 
-<div class="status">
+<img src="https://i.pravatar.cc/150?img=3">
 
-<div>17:00</div>
+<h2>Rafi</h2>
 
-<div>
-<i class="fa-solid fa-wifi"></i>
-<i class="fa-solid fa-battery-three-quarters"></i>
-</div>
+<p>Developer • Creator</p>
 
 </div>
-
-<!-- header -->
-
-<div class="header">
-
-<h2>Rafi Links 👋</h2>
-
-<div class="search">
-<i class="fa-solid fa-magnifying-glass"></i>
-<span>Cari sosial media...</span>
-</div>
-
-</div>
-
-<!-- links -->
 
 <div class="links">
 
-<a class="link instagram"
-href="https://instagram.com/rpiidka">
-
+<a class="link" href="#">
 <i class="fa-brands fa-instagram"></i>
 Instagram
-
 </a>
 
-<a class="link tiktok"
-href="https://tiktok.com/@irappp5">
-
+<a class="link" href="#">
 <i class="fa-brands fa-tiktok"></i>
 TikTok
-
 </a>
 
-<a class="link discord"
-href="https://discord.com/users/rapiidka">
-
+<a class="link" href="#">
 <i class="fa-brands fa-discord"></i>
 Discord
-
 </a>
 
-<a class="link spotify"
-href="https://open.spotify.com/user/5i9h6e28bovq1grjbapj28vsh">
-
+<a class="link" href="#">
 <i class="fa-brands fa-spotify"></i>
 Spotify
-
 </a>
 
-<a class="link youtube"
-href="https://youtube.com/@jebengg">
-
+<a class="link" href="#">
 <i class="fa-brands fa-youtube"></i>
 YouTube
-
-</a>
-
-<a class="link linkedin"
-href="https://linkedin.com">
-
-<i class="fa-brands fa-linkedin"></i>
-LinkedIn
-
 </a>
 
 </div>
