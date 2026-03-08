@@ -5,9 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rafi Links</title>
+<title>Rafi App</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
@@ -15,179 +16,137 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial;
 }
 
-/* BACKGROUND */
+/* background laptop */
 
 body{
-
 background:linear-gradient(135deg,#3a86ff,#74b9ff);
-min-height:100vh;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-overflow-x:hidden;
-
 }
 
-/* PHONE FRAME */
+/* phone frame */
 
 .phone{
 
-width:360px;
-height:720px;
+width:420px;
+height:760px;
 
 background:#111;
+border-radius:50px;
 
-border-radius:45px;
+padding:14px;
 
-padding:12px;
-
-box-shadow:0 25px 70px rgba(0,0,0,0.5);
+box-shadow:0 30px 80px rgba(0,0,0,0.5);
 
 }
 
-/* SCREEN */
+/* screen */
 
 .screen{
 
 width:100%;
 height:100%;
 
-background:linear-gradient(135deg,#3a86ff,#74b9ff);
-
-border-radius:35px;
-
-padding:30px 20px;
+background:#f5f5f5;
+border-radius:40px;
 
 overflow-y:auto;
 
-color:white;
-
-position:relative;
-
 }
 
-/* NOTCH */
+/* status bar */
 
-.screen::before{
+.status{
 
-content:"";
+display:flex;
+justify-content:space-between;
 
-width:140px;
-height:28px;
-
-background:#000;
-
-border-radius:30px;
-
-position:absolute;
-
-top:10px;
-left:50%;
-
-transform:translateX(-50%);
-
-}
-
-/* CONTAINER */
-
-.container{
-
-margin-top:40px;
-text-align:center;
-
-}
-
-/* PROFILE */
-
-.profile img{
-
-width:120px;
-height:120px;
-
-border-radius:50%;
-object-fit:cover;
-
-border:4px solid white;
-
-box-shadow:0 0 20px rgba(255,255,255,0.6);
-
-margin-bottom:15px;
-
-}
-
-.profile h1{
-
-font-size:22px;
-margin-bottom:6px;
-
-}
-
-.tag{
-
-opacity:0.9;
+padding:10px 18px;
 font-size:14px;
-margin-bottom:25px;
+font-weight:bold;
 
 }
 
-/* LINK BUTTON */
+/* header */
+
+.header{
+
+padding:15px 20px;
+
+}
+
+.header h2{
+
+font-size:20px;
+margin-bottom:10px;
+
+}
+
+/* search */
+
+.search{
+
+background:white;
+border-radius:15px;
+
+padding:10px;
+
+display:flex;
+align-items:center;
+gap:10px;
+
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+
+}
+
+/* links */
+
+.links{
+
+padding:20px;
+
+}
 
 .link{
 
 display:flex;
 align-items:center;
-justify-content:center;
-
-gap:12px;
-
-width:100%;
-
-margin:12px 0;
-
-padding:14px;
+gap:15px;
 
 background:white;
 
-color:#333;
+padding:15px;
 
-border-radius:16px;
+margin-bottom:12px;
+
+border-radius:15px;
 
 text-decoration:none;
+color:#333;
 
-font-weight:bold;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
 
-font-size:15px;
-
-transition:0.25s;
-
-box-shadow:0 6px 15px rgba(0,0,0,0.2);
+transition:.2s;
 
 }
 
 .link:hover{
-
-transform:translateY(-3px);
-background:#eef5ff;
-
+transform:scale(1.02);
 }
 
-.link i{
+/* icons */
 
-font-size:20px;
-
-}
-
-/* ICON COLORS */
-
-.instagram i{color:#E1306C;}
-.tiktok i{color:#000;}
-.discord i{color:#5865F2;}
-.spotify i{color:#1DB954;}
-.youtube i{color:#FF0000;}
-.linkedin i{color:#0A66C2;}
+.instagram i{color:#E1306C}
+.tiktok i{color:#000}
+.discord i{color:#5865F2}
+.spotify i{color:#1DB954}
+.youtube i{color:#FF0000}
+.linkedin i{color:#0A66C2}
 
 </style>
 
@@ -199,43 +158,82 @@ font-size:20px;
 
 <div class="screen">
 
-<div class="container">
+<!-- status bar -->
 
-<div class="profile">
+<div class="status">
 
-<img src="foto.jpg.jpeg">
+<div>17:00</div>
 
-<h1>Rafi Dwi Kurniawan</h1>
-
-<div class="tag">
-Mahasiswa Teknik Industri<br>
-Universitas Singaperbangsa Karawang
+<div>
+<i class="fa-solid fa-wifi"></i>
+<i class="fa-solid fa-battery-three-quarters"></i>
 </div>
 
 </div>
 
-<a class="link instagram" href="https://instagram.com/rpiidka">
-<i class="fa-brands fa-instagram"></i> Instagram
+<!-- header -->
+
+<div class="header">
+
+<h2>Rafi Links 👋</h2>
+
+<div class="search">
+<i class="fa-solid fa-magnifying-glass"></i>
+<span>Cari sosial media...</span>
+</div>
+
+</div>
+
+<!-- links -->
+
+<div class="links">
+
+<a class="link instagram"
+href="https://instagram.com/rpiidka">
+
+<i class="fa-brands fa-instagram"></i>
+Instagram
+
 </a>
 
-<a class="link tiktok" href="https://tiktok.com/@irappp5">
-<i class="fa-brands fa-tiktok"></i> TikTok
+<a class="link tiktok"
+href="https://tiktok.com/@irappp5">
+
+<i class="fa-brands fa-tiktok"></i>
+TikTok
+
 </a>
 
-<a class="link discord" href="https://discord.com/users/rapiidka">
-<i class="fa-brands fa-discord"></i> Discord
+<a class="link discord"
+href="https://discord.com/users/rapiidka">
+
+<i class="fa-brands fa-discord"></i>
+Discord
+
 </a>
 
-<a class="link spotify" href="https://open.spotify.com/user/5i9h6e28bovq1grjbapj28vsh">
-<i class="fa-brands fa-spotify"></i> Spotify
+<a class="link spotify"
+href="https://open.spotify.com/user/5i9h6e28bovq1grjbapj28vsh">
+
+<i class="fa-brands fa-spotify"></i>
+Spotify
+
 </a>
 
-<a class="link youtube" href="https://youtube.com/@jebengg">
-<i class="fa-brands fa-youtube"></i> YouTube
+<a class="link youtube"
+href="https://youtube.com/@jebengg">
+
+<i class="fa-brands fa-youtube"></i>
+YouTube
+
 </a>
 
-<a class="link linkedin" href="https://www.linkedin.com/in/rafi-dwi-kurniawan-4a3220189">
-<i class="fa-brands fa-linkedin"></i> LinkedIn
+<a class="link linkedin"
+href="https://linkedin.com">
+
+<i class="fa-brands fa-linkedin"></i>
+LinkedIn
+
 </a>
 
 </div>
