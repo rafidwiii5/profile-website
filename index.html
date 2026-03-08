@@ -3,47 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iPhone UI</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<title>My Phone</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family: "Inter", sans-serif;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
 body{
+background:#000;
 height:100vh;
 display:flex;
-justify-content:center;
 align-items:center;
-background:black;
+justify-content:center;
 }
 
 /* PHONE FRAME */
 
 .phone{
-width:360px;
-height:740px;
-border-radius:40px;
+width:390px;
+height:844px;
+border-radius:50px;
 overflow:hidden;
 position:relative;
-box-shadow:0 30px 60px rgba(0,0,0,0.6);
-}
-
-/* WALLPAPER */
-
-.wallpaper{
-position:absolute;
-width:100%;
-height:100%;
-background-image:url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80");
-background-size:cover;
-background-position:center;
+box-shadow:0 0 40px rgba(0,0,0,0.6);
+background:black;
 }
 
 /* LOCKSCREEN */
@@ -52,54 +39,39 @@ background-position:center;
 position:absolute;
 width:100%;
 height:100%;
+background:url("https://images.unsplash.com/photo-1506744038136-46273834b3fb") center/cover;
+color:white;
 display:flex;
 flex-direction:column;
 align-items:center;
-justify-content:flex-start;
-padding-top:80px;
-color:white;
-transition:0.6s;
+justify-content:space-between;
+padding:60px 20px;
+animation:unlock 1.6s ease forwards;
 }
 
-/* TIME */
-
 .time{
-font-size:70px;
-font-weight:300;
-letter-spacing:2px;
+font-size:72px;
+font-weight:200;
+margin-top:40px;
 }
 
 .date{
-margin-top:5px;
-font-size:16px;
-opacity:0.8;
+font-size:18px;
+opacity:0.9;
 }
 
-/* NOTIFICATION */
-
-.notification{
-margin-top:30px;
-width:85%;
-padding:12px 15px;
-border-radius:15px;
-background:rgba(255,255,255,0.15);
-backdrop-filter: blur(10px);
-font-size:14px;
-}
-
-/* SWIPE TEXT */
+/* swipe text */
 
 .swipe{
-position:absolute;
-bottom:40px;
 font-size:14px;
 opacity:0.8;
-animation: swipe 2s infinite;
+animation:swipeMove 1.5s infinite;
+margin-bottom:40px;
 }
 
-@keyframes swipe{
+@keyframes swipeMove{
 0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
+50%{transform:translateY(-8px)}
 100%{transform:translateY(0)}
 }
 
@@ -109,65 +81,79 @@ animation: swipe 2s infinite;
 position:absolute;
 width:100%;
 height:100%;
-padding:60px 25px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-grid-gap:25px;
+background:url("https://images.unsplash.com/photo-1519681393784-d120267933ba") center/cover;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+padding:60px 20px 40px;
 opacity:0;
-transform:translateY(100%);
-transition:0.6s;
+animation:homeAppear 1s ease forwards;
+animation-delay:1.6s;
 }
 
-/* APP ICON */
+@keyframes unlock{
+0%{transform:translateY(0)}
+100%{transform:translateY(-100%)}
+}
+
+@keyframes homeAppear{
+from{opacity:0}
+to{opacity:1}
+}
+
+/* APP GRID */
+
+.apps{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:22px;
+}
 
 .app{
 display:flex;
 flex-direction:column;
 align-items:center;
+text-decoration:none;
 color:white;
-font-size:11px;
+font-size:12px;
 }
 
-.app img{
-width:50px;
-height:50px;
-border-radius:14px;
-margin-bottom:5px;
+.icon{
+width:60px;
+height:60px;
+border-radius:16px;
+background:white;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 
-/* DOCK */
+.icon img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.label{
+margin-top:6px;
+}
+
+/* dock */
 
 .dock{
-position:absolute;
-bottom:15px;
-left:50%;
-transform:translateX(-50%);
-width:85%;
-height:70px;
-border-radius:25px;
-background:rgba(255,255,255,0.2);
-backdrop-filter:blur(20px);
 display:flex;
 justify-content:space-around;
-align-items:center;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(20px);
+padding:10px;
+border-radius:24px;
 }
 
-.dock img{
-width:55px;
-height:55px;
-border-radius:16px;
-}
-
-/* ACTIVE */
-
-.phone.active .lockscreen{
-transform:translateY(-100%);
-opacity:0;
-}
-
-.phone.active .home{
-opacity:1;
-transform:translateY(0);
+.dock .icon{
+width:58px;
+height:58px;
 }
 
 </style>
@@ -175,124 +161,89 @@ transform:translateY(0);
 
 <body>
 
-<div class="phone" id="phone">
-
-<div class="wallpaper"></div>
+<div class="phone">
 
 <!-- LOCKSCREEN -->
 
-<div class="lockscreen" id="lock">
+<div class="lockscreen">
 
-<div class="time" id="clock">12:00</div>
-<div class="date">Monday, June 10</div>
-
-<div class="notification">
-📩 New Message<br>
-<i>"Bro jangan lupa tugas besok"</i>
+<div>
+<div class="time">09:41</div>
+<div class="date">Monday</div>
 </div>
 
-<div class="notification">
-🔔 Instagram<br>
-<i>@someone liked your photo</i>
-</div>
-
-<div class="swipe">
-⬆ Swipe Up to Unlock
-</div>
+<div class="swipe">Swipe up to unlock</div>
 
 </div>
 
-<!-- HOME SCREEN -->
+
+<!-- HOME -->
 
 <div class="home">
 
-<div class="app">
-<img src="https://img.icons8.com/color/96/safari--v1.png">
-Safari
-</div>
+<div class="apps">
 
-<div class="app">
-<img src="https://img.icons8.com/color/96/instagram-new.png">
-Instagram
+<a class="app" href="https://instagram.com">
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
 </div>
+<div class="label">Instagram</div>
+</a>
 
-<div class="app">
-<img src="https://img.icons8.com/color/96/youtube-play.png">
-YouTube
+<a class="app" href="https://tiktok.com">
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
 </div>
+<div class="label">TikTok</div>
+</a>
 
-<div class="app">
-<img src="https://img.icons8.com/color/96/tiktok.png">
-TikTok
+<a class="app" href="https://youtube.com">
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
 </div>
+<div class="label">YouTube</div>
+</a>
 
-<div class="app">
-<img src="https://img.icons8.com/color/96/spotify.png">
-Spotify
+<a class="app" href="https://linkedin.com">
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
 </div>
+<div class="label">LinkedIn</div>
+</a>
 
-<div class="app">
-<img src="https://img.icons8.com/color/96/whatsapp.png">
-WhatsApp
+<a class="app" href="https://spotify.com">
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/174/174872.png">
 </div>
-
-<div class="app">
-<img src="https://img.icons8.com/color/96/gmail.png">
-Mail
-</div>
-
-<div class="app">
-<img src="https://img.icons8.com/color/96/google-maps.png">
-Maps
-</div>
+<div class="label">Spotify</div>
+</a>
 
 </div>
 
-<!-- DOCK -->
 
 <div class="dock">
 
-<img src="https://img.icons8.com/color/96/phone.png">
-<img src="https://img.icons8.com/color/96/safari--v1.png">
-<img src="https://img.icons8.com/color/96/imessage.png">
-<img src="https://img.icons8.com/color/96/apple-music.png">
+<a class="icon" href="https://instagram.com">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</a>
+
+<a class="icon" href="https://youtube.com">
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+</a>
+
+<a class="icon" href="https://spotify.com">
+<img src="https://cdn-icons-png.flaticon.com/512/174/174872.png">
+</a>
+
+<a class="icon" href="https://linkedin.com">
+<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
+</a>
 
 </div>
 
 </div>
 
-<script>
-
-/* CLOCK */
-
-function updateClock(){
-let now = new Date();
-let h = now.getHours().toString().padStart(2,'0');
-let m = now.getMinutes().toString().padStart(2,'0');
-
-document.getElementById("clock").innerText = h+":"+m;
-}
-
-setInterval(updateClock,1000);
-updateClock();
-
-/* SWIPE */
-
-let startY = 0;
-
-document.addEventListener("touchstart",e=>{
-startY = e.touches[0].clientY;
-});
-
-document.addEventListener("touchend",e=>{
-let endY = e.changedTouches[0].clientY;
-
-if(startY - endY > 80){
-document.getElementById("phone").classList.add("active");
-}
-});
-
-</script>
+</div>
 
 </body>
 </html>
