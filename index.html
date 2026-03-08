@@ -2,70 +2,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<title>iPhone Social Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Social Hub</title>
 
 <style>
 
 body{
 margin:0;
-background:black;
+background:#111;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
-font-family:-apple-system,BlinkMacSystemFont;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
+/* PHONE SCALE RESPONSIVE */
+
+.phoneWrapper{
+transform:scale(.9);
+}
+
+@media (max-width:600px){
+.phoneWrapper{
+transform:scale(1);
+}
+}
+
+/* PHONE */
+
 .phone{
-width:330px;
-height:680px;
-border-radius:45px;
+width:360px;
+height:760px;
+border-radius:50px;
 overflow:hidden;
 position:relative;
-box-shadow:0 30px 80px rgba(0,0,0,0.9);
+box-shadow:0 30px 80px rgba(0,0,0,0.8);
+background:black;
 }
+
+/* WALLPAPER */
 
 .wallpaper{
 position:absolute;
 width:100%;
 height:100%;
-background:url("https://images.unsplash.com/photo-1519608487953-e999c86e7455") center/cover;
+background:url("https://images.unsplash.com/photo-1603539947678-cd3954ed515d") center/cover;
 }
 
 /* STATUS BAR */
 
 .status{
 position:absolute;
-top:12px;
-left:20px;
-right:20px;
+top:14px;
+left:24px;
+right:24px;
 display:flex;
 justify-content:space-between;
 color:white;
 font-size:14px;
-font-weight:500;
-z-index:5;
-}
-
-.rightStatus{
-display:flex;
-gap:6px;
-align-items:center;
+z-index:10;
 }
 
 /* DYNAMIC ISLAND */
 
 .island{
 position:absolute;
-top:10px;
+top:12px;
 left:50%;
 transform:translateX(-50%);
 width:120px;
-height:28px;
+height:30px;
 background:black;
 border-radius:20px;
-z-index:4;
 }
 
 /* LOCKSCREEN */
@@ -79,18 +91,17 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 color:white;
-text-align:center;
 }
 
 .time{
 font-size:64px;
 font-weight:600;
-margin-top:80px;
+margin-top:100px;
 }
 
 .swipe{
 position:absolute;
-bottom:40px;
+bottom:50px;
 font-size:14px;
 opacity:.8;
 }
@@ -101,7 +112,7 @@ opacity:.8;
 position:absolute;
 width:100%;
 height:100%;
-padding:110px 25px;
+padding:120px 28px;
 box-sizing:border-box;
 display:none;
 }
@@ -109,7 +120,7 @@ display:none;
 .apps{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:24px;
+gap:26px;
 }
 
 .app{
@@ -119,37 +130,29 @@ font-size:12px;
 }
 
 .icon{
-width:64px;
-height:64px;
+width:66px;
+height:66px;
 border-radius:18px;
 margin:auto;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:26px;
-box-shadow:0 6px 16px rgba(0,0,0,0.5);
+box-shadow:0 6px 16px rgba(0,0,0,0.4);
+background:white;
 }
-
-/* APP COLORS */
-
-.ig{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af)}
-.tt{background:black}
-.yt{background:#ff0000}
-.li{background:#0077b5}
-.sp{background:#1db954}
 
 /* DOCK */
 
 .dock{
 position:absolute;
-bottom:25px;
+bottom:30px;
 left:50%;
 transform:translateX(-50%);
 width:85%;
 height:80px;
-border-radius:30px;
+border-radius:28px;
 background:rgba(255,255,255,0.25);
-backdrop-filter:blur(25px);
+backdrop-filter:blur(20px);
 display:flex;
 justify-content:center;
 align-items:center;
@@ -167,7 +170,11 @@ width:120px;
 height:5px;
 background:white;
 border-radius:10px;
-opacity:.8;
+}
+
+.icon img{
+width:34px;
+height:34px;
 }
 
 </style>
@@ -175,18 +182,15 @@ opacity:.8;
 
 <body>
 
+<div class="phoneWrapper">
+
 <div class="phone">
 
 <div class="wallpaper"></div>
 
 <div class="status">
 <div id="timeSmall">9:41</div>
-
-<div class="rightStatus">
-<span>📶</span>
-<span>📡</span>
-<span>🔋</span>
-</div>
+<div>📶 📡 🔋</div>
 </div>
 
 <div class="island"></div>
@@ -194,7 +198,6 @@ opacity:.8;
 <div class="lockscreen" id="lock">
 
 <div class="time" id="time">9:41</div>
-
 <div class="swipe">Swipe up to unlock</div>
 
 </div>
@@ -205,35 +208,45 @@ opacity:.8;
 
 <div class="app">
 <a href="https://instagram.com" target="_blank">
-<div class="icon ig">📸</div>
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</div>
 </a>
 Instagram
 </div>
 
 <div class="app">
 <a href="https://tiktok.com" target="_blank">
-<div class="icon tt">🎵</div>
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+</div>
 </a>
 TikTok
 </div>
 
 <div class="app">
 <a href="https://youtube.com" target="_blank">
-<div class="icon yt">▶</div>
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+</div>
 </a>
 YouTube
 </div>
 
 <div class="app">
 <a href="https://linkedin.com" target="_blank">
-<div class="icon li">in</div>
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png">
+</div>
 </a>
 LinkedIn
 </div>
 
 <div class="app">
 <a href="https://spotify.com" target="_blank">
-<div class="icon sp">♫</div>
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/174/174872.png">
+</div>
 </a>
 Spotify
 </div>
@@ -243,15 +256,21 @@ Spotify
 <div class="dock">
 
 <a href="https://instagram.com" target="_blank">
-<div class="icon ig">📸</div>
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</div>
 </a>
 
 <a href="https://tiktok.com" target="_blank">
-<div class="icon tt">🎵</div>
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+</div>
 </a>
 
 <a href="https://youtube.com" target="_blank">
-<div class="icon yt">▶</div>
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+</div>
 </a>
 
 </div>
@@ -260,6 +279,7 @@ Spotify
 
 <div class="homebar"></div>
 
+</div>
 </div>
 
 <script>
