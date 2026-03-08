@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rafi Phone</title>
+<title>Rafi iPhone</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -17,7 +17,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Inter,sans-serif;
+font-family:-apple-system,BlinkMacSystemFont;
 }
 
 body{
@@ -27,7 +27,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 
-background:linear-gradient(160deg,#0f172a,#020617);
+background:#111;
 
 }
 
@@ -35,16 +35,16 @@ background:linear-gradient(160deg,#0f172a,#020617);
 
 .phone{
 
-width:320px;
-height:640px;
+width:330px;
+height:670px;
 
-background:#020617;
-
-border-radius:36px;
+border-radius:50px;
 
 padding:12px;
 
-box-shadow:0 20px 70px rgba(0,0,0,0.6);
+background:#000;
+
+box-shadow:0 30px 90px rgba(0,0,0,.7);
 
 }
 
@@ -55,16 +55,31 @@ box-shadow:0 20px 70px rgba(0,0,0,0.6);
 width:100%;
 height:100%;
 
-border-radius:28px;
+border-radius:40px;
 
-background:linear-gradient(#1e293b,#020617);
+background:url("https://images.unsplash.com/photo-1603575448878-868a20723f6d")
+center/cover;
 
-padding:20px;
+padding:18px;
 
 color:white;
 
 position:relative;
+
 overflow:hidden;
+
+}
+
+/* status bar */
+
+.status{
+
+display:flex;
+justify-content:space-between;
+
+font-size:13px;
+
+margin-bottom:20px;
 
 }
 
@@ -84,22 +99,11 @@ height:70px;
 
 border-radius:50%;
 
-margin-bottom:8px;
+border:2px solid white;
 
 }
 
-.profile h2{
-font-size:17px;
-}
-
-.profile p{
-
-font-size:12px;
-color:#9ca3af;
-
-}
-
-/* apps grid */
+/* apps */
 
 .apps{
 
@@ -107,9 +111,9 @@ display:grid;
 
 grid-template-columns:repeat(3,1fr);
 
-gap:20px;
+gap:22px;
 
-margin-top:20px;
+margin-top:10px;
 
 }
 
@@ -123,61 +127,94 @@ transition:.2s;
 }
 
 .app:hover{
-transform:scale(1.05);
+
+transform:scale(1.1);
+
 }
 
 .icon{
 
-width:58px;
-height:58px;
+width:60px;
+height:60px;
 
-background:rgba(255,255,255,0.1);
-
-border-radius:16px;
+border-radius:18px;
 
 display:flex;
 align-items:center;
 justify-content:center;
 
-font-size:24px;
+font-size:26px;
 
 margin:auto;
-margin-bottom:6px;
+margin-bottom:5px;
 
 }
 
-/* screens */
+/* icon colors */
+
+.social{background:#0ea5e9}
+.gallery{background:#ec4899}
+.music{background:#f43f5e}
+.notes{background:#facc15}
+.about{background:#22c55e}
+.settings{background:#64748b}
+
+/* dock */
+
+.dock{
+
+position:absolute;
+bottom:15px;
+left:10px;
+right:10px;
+
+background:rgba(255,255,255,.2);
+
+backdrop-filter:blur(15px);
+
+border-radius:25px;
+
+padding:10px;
+
+display:flex;
+justify-content:space-around;
+
+}
+
+.dock .icon{
+
+width:50px;
+height:50px;
+
+}
+
+/* pages */
 
 .page{
 
 position:absolute;
+
 top:0;
 left:0;
 
 width:100%;
 height:100%;
 
-background:linear-gradient(#1e293b,#020617);
+background:#0f172a;
 
 padding:20px;
 
-transform:translateX(100%);
-transition:0.4s;
+transform:scale(.9);
+opacity:0;
+
+transition:.3s;
 
 }
 
 .page.active{
-transform:translateX(0);
-}
 
-/* back */
-
-.back{
-
-cursor:pointer;
-margin-bottom:15px;
-
-color:#9ca3af;
+transform:scale(1);
+opacity:1;
 
 }
 
@@ -185,15 +222,18 @@ color:#9ca3af;
 
 .links{
 
+margin-top:20px;
+
 display:flex;
 flex-direction:column;
+
 gap:12px;
 
 }
 
 .link{
 
-background:rgba(255,255,255,0.08);
+background:#1e293b;
 
 padding:12px;
 
@@ -204,8 +244,16 @@ text-decoration:none;
 color:white;
 
 display:flex;
-align-items:center;
 gap:10px;
+
+align-items:center;
+
+}
+
+.back{
+
+margin-bottom:10px;
+cursor:pointer;
 
 }
 
@@ -219,51 +267,78 @@ gap:10px;
 
 <div class="screen">
 
-<!-- HOME -->
+<!-- STATUS -->
 
-<div id="home">
+<div class="status">
+
+<div>17:21</div>
+
+<div>
+<i class="fa-solid fa-wifi"></i>
+<i class="fa-solid fa-battery-full"></i>
+</div>
+
+</div>
+
+<!-- PROFILE -->
 
 <div class="profile">
 
 <img src="https://i.pravatar.cc/150?img=12">
 
-<h2>Rafi</h2>
-<p>Developer</p>
-
 </div>
+
+<!-- APPS -->
 
 <div class="apps">
 
 <div class="app" onclick="openPage('social')">
-<div class="icon"><i class="fa-solid fa-share-nodes"></i></div>
+<div class="icon social"><i class="fa-solid fa-share-nodes"></i></div>
 <p>Social</p>
 </div>
 
 <div class="app">
-<div class="icon"><i class="fa-solid fa-image"></i></div>
+<div class="icon gallery"><i class="fa-solid fa-image"></i></div>
 <p>Gallery</p>
 </div>
 
 <div class="app">
-<div class="icon"><i class="fa-solid fa-music"></i></div>
+<div class="icon music"><i class="fa-solid fa-music"></i></div>
 <p>Music</p>
 </div>
 
 <div class="app">
-<div class="icon"><i class="fa-solid fa-note-sticky"></i></div>
+<div class="icon notes"><i class="fa-solid fa-note-sticky"></i></div>
 <p>Notes</p>
 </div>
 
 <div class="app">
-<div class="icon"><i class="fa-solid fa-user"></i></div>
+<div class="icon about"><i class="fa-solid fa-user"></i></div>
 <p>About</p>
 </div>
 
 <div class="app">
-<div class="icon"><i class="fa-solid fa-gear"></i></div>
+<div class="icon settings"><i class="fa-solid fa-gear"></i></div>
 <p>Settings</p>
 </div>
 
+</div>
+
+<!-- DOCK -->
+
+<div class="dock">
+
+<div class="icon social"
+onclick="openPage('social')">
+<i class="fa-solid fa-share-nodes"></i>
+</div>
+
+<div class="icon about">
+<i class="fa-solid fa-user"></i>
+</div>
+
+<div class="icon settings">
+<i class="fa-solid fa-gear"></i>
 </div>
 
 </div>
