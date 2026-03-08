@@ -2,161 +2,143 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>iPhone UI</title>
+<title>iPhone Style Social Hub</title>
 
 <style>
 
 body{
-background:#111;
+margin:0;
+font-family:-apple-system, BlinkMacSystemFont, sans-serif;
+background:black;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
-font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
-
-/* PHONE */
 
 .phone{
-width:330px;
-height:690px;
-border-radius:50px;
-border:10px solid black;
+width:320px;
+height:640px;
+border-radius:40px;
 overflow:hidden;
 position:relative;
+box-shadow:0 0 40px rgba(0,0,0,0.7);
 background:black;
 }
 
-/* NOTCH */
-
-.notch{
-position:absolute;
-top:8px;
-left:50%;
-transform:translateX(-50%);
-width:120px;
-height:28px;
-background:black;
-border-radius:20px;
-z-index:10;
-}
-
-/* LOCKSCREEN */
-
-#lockscreen{
+.wallpaper{
 position:absolute;
 width:100%;
 height:100%;
-background:url("https://images.unsplash.com/photo-1517816428104-797678c7cf0c") center/cover;
+background:url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee") center/cover;
+}
+
+.lockscreen{
+position:absolute;
+width:100%;
+height:100%;
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:space-between;
 color:white;
-transition:1s;
+padding:40px 0;
 }
 
 .time{
-font-size:72px;
-margin-top:110px;
-opacity:0;
-animation:fade 1s forwards;
-animation-delay:0.5s;
+font-size:60px;
+font-weight:600;
 }
 
-.bar{
-width:120px;
-height:5px;
-background:white;
-border-radius:5px;
-margin-bottom:40px;
-opacity:0;
-animation:fade 1s forwards;
-animation-delay:1s;
+.date{
+font-size:16px;
+opacity:0.9;
 }
 
-/* HOME */
+.swipe{
+font-size:14px;
+opacity:0.7;
+margin-bottom:20px;
+}
 
-#home{
+.fingerprint{
+width:70px;
+height:70px;
+border-radius:50%;
+border:2px solid rgba(255,255,255,0.6);
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:20px;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);opacity:1}
+50%{transform:scale(1.1);opacity:0.6}
+100%{transform:scale(1);opacity:1}
+}
+
+.home{
 position:absolute;
 width:100%;
 height:100%;
-background:url("https://images.unsplash.com/photo-1517816428104-797678c7cf0c") center/cover;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-opacity:0;
-transition:1s;
+background:url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee") center/cover;
+padding:30px 20px;
+box-sizing:border-box;
+display:none;
 }
 
-/* APP GRID */
-
-.grid{
+.apps{
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:20px;
-padding:110px 20px 0;
+margin-top:40px;
 }
 
 .app{
 text-align:center;
 color:white;
 font-size:12px;
-opacity:0;
-transform:translateY(10px);
-animation:appin 0.6s forwards;
 }
 
-.app:nth-child(1){animation-delay:0.2s;}
-.app:nth-child(2){animation-delay:0.3s;}
-.app:nth-child(3){animation-delay:0.4s;}
-.app:nth-child(4){animation-delay:0.5s;}
-.app:nth-child(5){animation-delay:0.6s;}
-
-.app img{
+.icon{
 width:60px;
+height:60px;
 border-radius:18px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+box-shadow:0 4px 12px rgba(0,0,0,0.4);
 }
 
-/* DOCK */
+.ig{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af)}
+.tt{background:black}
+.yt{background:#ff0000}
+.li{background:#0077b5}
+.sp{background:#1db954}
 
 .dock{
-display:flex;
-justify-content:space-around;
-align-items:center;
-margin:20px;
-padding:10px;
-background:rgba(255,255,255,0.2);
-backdrop-filter:blur(10px);
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+width:85%;
+height:70px;
 border-radius:25px;
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(20px);
+display:flex;
+align-items:center;
+justify-content:center;
+gap:30px;
 }
 
-.dock img{
+.dock .icon{
 width:55px;
-border-radius:15px;
-}
-
-/* ANIMATION */
-
-.unlock #lockscreen{
-transform:translateY(-100%);
-}
-
-.unlock #home{
-opacity:1;
-}
-
-/* KEYFRAMES */
-
-@keyframes fade{
-to{opacity:1;}
-}
-
-@keyframes appin{
-to{
-opacity:1;
-transform:translateY(0);
-}
+height:55px;
 }
 
 </style>
@@ -164,58 +146,76 @@ transform:translateY(0);
 
 <body>
 
-<div class="phone" id="phone">
+<div class="phone">
 
-<div class="notch"></div>
+<div class="wallpaper"></div>
 
-<div id="lockscreen">
-<div class="time">09:41</div>
-<div class="bar"></div>
+<div class="lockscreen" id="lock">
+
+<div>
+<div class="time" id="time">12:00</div>
+<div class="date">Monday</div>
 </div>
 
-<div id="home">
+<div class="fingerprint"></div>
+<div class="swipe">Swipe up to unlock</div>
 
-<div class="grid">
-
-<div class="app">
-<a href="https://instagram.com/USERNAME">
-<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-</a>
-<p>Instagram</p>
 </div>
 
-<div class="app">
-<a href="https://tiktok.com/@USERNAME">
-<img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png">
-</a>
-<p>TikTok</p>
-</div>
+<div class="home" id="home">
+
+<div class="apps">
 
 <div class="app">
-<a href="https://youtube.com/@USERNAME">
-<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+<a href="https://instagram.com" target="_blank">
+<div class="icon ig">📸</div>
 </a>
-<p>YouTube</p>
+Instagram
 </div>
 
 <div class="app">
-<a href="https://linkedin.com/in/USERNAME">
-<img src="https://cdn-icons-png.flaticon.com/512/145/145807.png">
+<a href="https://tiktok.com" target="_blank">
+<div class="icon tt">🎵</div>
 </a>
-<p>LinkedIn</p>
+TikTok
+</div>
+
+<div class="app">
+<a href="https://youtube.com" target="_blank">
+<div class="icon yt">▶</div>
+</a>
+YouTube
+</div>
+
+<div class="app">
+<a href="https://linkedin.com" target="_blank">
+<div class="icon li">in</div>
+</a>
+LinkedIn
+</div>
+
+<div class="app">
+<a href="https://spotify.com" target="_blank">
+<div class="icon sp">♫</div>
+</a>
+Spotify
 </div>
 
 </div>
 
 <div class="dock">
 
-<a href="https://open.spotify.com/user/USERNAME">
-<img src="https://cdn-icons-png.flaticon.com/512/174/174872.png">
+<a href="https://instagram.com" target="_blank">
+<div class="icon ig">📸</div>
 </a>
 
-<img src="https://cdn-icons-png.flaticon.com/512/15/15874.png">
-<img src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
-<img src="https://cdn-icons-png.flaticon.com/512/724/724664.png">
+<a href="https://tiktok.com" target="_blank">
+<div class="icon tt">🎵</div>
+</a>
+
+<a href="https://youtube.com" target="_blank">
+<div class="icon yt">▶</div>
+</a>
 
 </div>
 
@@ -225,9 +225,51 @@ transform:translateY(0);
 
 <script>
 
+let lock=document.getElementById("lock")
+let home=document.getElementById("home")
+
+let startY=0
+
+lock.addEventListener("touchstart",e=>{
+startY=e.touches[0].clientY
+})
+
+lock.addEventListener("touchend",e=>{
+let endY=e.changedTouches[0].clientY
+if(startY-endY>80){
+unlock()
+}
+})
+
+lock.addEventListener("mousedown",e=>{
+startY=e.clientY
+})
+
+lock.addEventListener("mouseup",e=>{
+let endY=e.clientY
+if(startY-endY>80){
+unlock()
+}
+})
+
+function unlock(){
+lock.style.transition="0.6s"
+lock.style.transform="translateY(-100%)"
 setTimeout(()=>{
-document.getElementById("phone").classList.add("unlock")
-},2000)
+lock.style.display="none"
+home.style.display="block"
+},500)
+}
+
+function updateTime(){
+let now=new Date()
+let h=now.getHours().toString().padStart(2,"0")
+let m=now.getMinutes().toString().padStart(2,"0")
+document.getElementById("time").innerText=h+":"+m
+}
+
+setInterval(updateTime,1000)
+updateTime()
 
 </script>
 
