@@ -27,7 +27,7 @@ min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-overflow:hidden;
+overflow-x:hidden;
 
 }
 
@@ -36,34 +36,49 @@ overflow:hidden;
 .phone{
 
 width:360px;
-height:700px;
+height:720px;
 
-background:linear-gradient(135deg,#3a86ff,#74b9ff);
+background:#111;
 
 border-radius:45px;
 
-padding:40px 25px;
+padding:12px;
 
-position:relative;
+box-shadow:0 25px 70px rgba(0,0,0,0.5);
 
-box-shadow:
-0 0 0 12px #111,
-0 25px 70px rgba(0,0,0,0.45);
+}
+
+/* SCREEN */
+
+.screen{
+
+width:100%;
+height:100%;
+
+background:linear-gradient(135deg,#3a86ff,#74b9ff);
+
+border-radius:35px;
+
+padding:30px 20px;
 
 overflow-y:auto;
+
+color:white;
+
+position:relative;
 
 }
 
 /* NOTCH */
 
-.phone::before{
+.screen::before{
 
 content:"";
 
 width:140px;
 height:28px;
 
-background:#111;
+background:#000;
 
 border-radius:30px;
 
@@ -80,8 +95,8 @@ transform:translateX(-50%);
 
 .container{
 
+margin-top:40px;
 text-align:center;
-color:white;
 
 }
 
@@ -89,15 +104,15 @@ color:white;
 
 .profile img{
 
-width:130px;
-height:130px;
+width:120px;
+height:120px;
 
 border-radius:50%;
 object-fit:cover;
 
-border:5px solid white;
+border:4px solid white;
 
-box-shadow:0 0 25px rgba(255,255,255,0.5);
+box-shadow:0 0 20px rgba(255,255,255,0.6);
 
 margin-bottom:15px;
 
@@ -105,7 +120,7 @@ margin-bottom:15px;
 
 .profile h1{
 
-font-size:24px;
+font-size:22px;
 margin-bottom:6px;
 
 }
@@ -114,7 +129,7 @@ margin-bottom:6px;
 
 opacity:0.9;
 font-size:14px;
-margin-bottom:30px;
+margin-bottom:25px;
 
 }
 
@@ -154,7 +169,7 @@ box-shadow:0 6px 15px rgba(0,0,0,0.2);
 
 .link:hover{
 
-transform:translateY(-3px) scale(1.03);
+transform:translateY(-3px);
 background:#eef5ff;
 
 }
@@ -165,7 +180,7 @@ font-size:20px;
 
 }
 
-/* SOCIAL ICON COLORS */
+/* ICON COLORS */
 
 .instagram i{color:#E1306C;}
 .tiktok i{color:#000;}
@@ -174,57 +189,15 @@ font-size:20px;
 .youtube i{color:#FF0000;}
 .linkedin i{color:#0A66C2;}
 
-/* FLOATING BACKGROUND */
-
-.circle{
-
-position:absolute;
-
-border-radius:50%;
-
-background:rgba(255,255,255,0.15);
-
-animation:float 14s linear infinite;
-
-}
-
-@keyframes float{
-
-0%{
-transform:translateY(110vh);
-}
-
-100%{
-transform:translateY(-20vh);
-}
-
-}
-
-/* RESPONSIVE */
-
-@media (max-width:500px){
-
-.phone{
-width:95%;
-height:auto;
-border-radius:30px;
-}
-
-.profile img{
-width:110px;
-height:110px;
-}
-
-}
-
 </style>
 
 </head>
 
 <body>
 
-
 <div class="phone">
+
+<div class="screen">
 
 <div class="container">
 
@@ -269,14 +242,7 @@ Universitas Singaperbangsa Karawang
 
 </div>
 
-
-<!-- FLOATING BACKGROUND -->
-
-<div class="circle" style="width:45px;height:45px;left:8%;animation-duration:10s"></div>
-<div class="circle" style="width:28px;height:28px;left:22%;animation-duration:8s"></div>
-<div class="circle" style="width:35px;height:35px;left:40%;animation-duration:12s"></div>
-<div class="circle" style="width:25px;height:25px;left:65%;animation-duration:9s"></div>
-<div class="circle" style="width:50px;height:50px;left:85%;animation-duration:14s"></div>
+</div>
 
 </body>
 </html>
