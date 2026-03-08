@@ -1,8 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iPhone UI</title>
+
+<title>Rafi Links</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 
@@ -10,258 +15,214 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:-apple-system,BlinkMacSystemFont;
+font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-background:#111;
+
+background:linear-gradient(135deg,#3a86ff,#74b9ff);
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
-}
-
-/* PHONE */
-
-.phone{
-width:390px;
-height:844px;
-border-radius:55px;
-overflow:hidden;
-position:relative;
-background:black;
-box-shadow:0 40px 80px rgba(0,0,0,0.6);
-}
-
-/* STATUS BAR */
-
-.status{
-position:absolute;
-top:10px;
-width:100%;
-display:flex;
-justify-content:space-between;
-padding:0 20px;
+overflow-x:hidden;
 color:white;
-font-size:14px;
-z-index:5;
+
 }
 
-/* LOCKSCREEN */
+/* container */
 
-.lock{
-position:absolute;
-width:100%;
-height:100%;
-background:url("https://images.unsplash.com/photo-1519125323398-675f0ddb6308") center/cover;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:space-between;
-padding:120px 20px 60px;
-color:white;
-transition:0.7s;
-}
+.container{
 
-.time{
-font-size:80px;
-font-weight:200;
-}
-
-.date{
-font-size:18px;
-opacity:.9;
-}
-
-.notif{
-width:85%;
-background:rgba(255,255,255,0.2);
-backdrop-filter:blur(20px);
-padding:12px;
-border-radius:16px;
-margin-top:20px;
-font-size:14px;
-}
-
-.swipe{
-opacity:.8;
-animation:swipe 1.5s infinite;
-}
-
-@keyframes swipe{
-0%{transform:translateY(0)}
-50%{transform:translateY(-10px)}
-100%{transform:translateY(0)}
-}
-
-/* HOME */
-
-.home{
-position:absolute;
-width:100%;
-height:100%;
-background:url("https://images.unsplash.com/photo-1491553895911-0055eca6402d") center/cover;
-padding:120px 25px 40px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:22px;
-opacity:0;
-transition:0.7s;
-}
-
-/* APP */
-
-.app{
+width:90%;
+max-width:380px;
 text-align:center;
-color:white;
-font-size:12px;
+padding:20px;
+z-index:2;
+
 }
 
-.icon{
-width:62px;
-height:62px;
-margin:auto;
-border-radius:18px;
-overflow:hidden;
-box-shadow:0 6px 15px rgba(0,0,0,0.3);
+/* profile */
+
+.profile img{
+
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+
+border:5px solid white;
+
+box-shadow:0 0 25px rgba(255,255,255,0.5);
+
+margin-bottom:15px;
+
 }
 
-.icon img{
-width:100%;
+.profile h1{
+
+font-size:26px;
+margin-bottom:5px;
+
 }
 
-/* DOCK */
+.tag{
 
-.dock{
-position:absolute;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-width:85%;
-background:rgba(255,255,255,0.25);
-backdrop-filter:blur(25px);
-border-radius:28px;
-padding:12px;
+opacity:0.9;
+margin-bottom:25px;
+
+}
+
+/* link buttons */
+
+.link{
+
 display:flex;
-justify-content:space-around;
+align-items:center;
+justify-content:center;
+
+gap:12px;
+
+width:100%;
+
+margin:10px 0;
+
+padding:14px;
+
+background:white;
+
+color:#333;
+
+border-radius:14px;
+
+text-decoration:none;
+
+font-weight:bold;
+
+font-size:16px;
+
+transition:0.25s;
+
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
+
 }
 
-.dock img{
-width:60px;
-border-radius:16px;
+.link:hover{
+
+transform:scale(1.05);
+background:#eef5ff;
+
 }
 
-/* UNLOCK */
+.link i{
 
-.phone.unlock .lock{
-transform:translateY(-100%);
-opacity:0;
+font-size:20px;
+
 }
 
-.phone.unlock .home{
-opacity:1;
+/* social colors */
+
+.instagram i{color:#E1306C;}
+.tiktok i{color:#000;}
+.discord i{color:#5865F2;}
+.spotify i{color:#1DB954;}
+.youtube i{color:#FF0000;}
+.linkedin i{color:#0A66C2;}
+
+/* floating animation */
+
+.circle{
+
+position:absolute;
+
+border-radius:50%;
+
+background:rgba(255,255,255,0.15);
+
+animation:float 12s linear infinite;
+
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(100vh);
+}
+
+100%{
+transform:translateY(-20vh);
+}
+
+}
+
+/* responsive */
+
+@media (max-width:500px){
+
+.profile img{
+width:120px;
+height:120px;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="phone" id="phone">
 
-<div class="status">
-<div>9:41</div>
-<div>📶 📡 🔋</div>
-</div>
+<div class="container">
 
-<!-- LOCKSCREEN -->
+<div class="profile">
 
-<div class="lock">
+<img src="foto.jpg.jpeg">
 
-<div>
-<div class="time">9:41</div>
-<div class="date">Monday</div>
+<h1>Rafi Dwi Kurniawan</h1>
 
-<div class="notif">
-📩 Instagram <br>
-someone sent you a message
-</div>
-
-<div class="notif">
-🔔 TikTok <br>
-3 new notifications
-</div>
+<div class="tag">Mahasiswa Teknik Industri 
+Universitas Singaperbangsa Karawang</div>
 
 </div>
 
-<div class="swipe">⬆ swipe up</div>
+
+<a class="link instagram" href="https://instagram.com/rpiidka">
+<i class="fa-brands fa-instagram"></i> Instagram
+</a>
+
+<a class="link tiktok" href="https://tiktok.com/@irappp5">
+<i class="fa-brands fa-tiktok"></i> TikTok
+</a>
+
+<a class="link discord" href="https://discord.com/users/rapiidka">
+<i class="fa-brands fa-discord"></i> Discord
+</a>
+
+<a class="link spotify" href="https://open.spotify.com/user/5i9h6e28bovq1grjbapj28vsh?si=2EcfGSezQmi3PEfxDhzZ3A">
+<i class="fa-brands fa-spotify"></i> Spotify
+</a>
+
+<a class="link youtube" href="https://youtube.com/@jebengg?si=RlSLf_RLGaXWJTGy">
+<i class="fa-brands fa-youtube"></i> YouTube
+</a>
+
+<a class="link linkedin" href="https://www.linkedin.com/in/rafi-dwi-kurniawan-4a3220189/
+
+">
+<i class="fa-brands fa-linkedin"></i> LinkedIn
+</a>
 
 </div>
 
-<!-- HOME -->
 
-<div class="home">
+<!-- floating background -->
 
-<div class="app">
-<div class="icon"><img src="https://img.icons8.com/color/96/instagram-new.png"></div>
-Instagram
-</div>
-
-<div class="app">
-<div class="icon"><img src="https://img.icons8.com/color/96/tiktok.png"></div>
-TikTok
-</div>
-
-<div class="app">
-<div class="icon"><img src="https://img.icons8.com/color/96/youtube-play.png"></div>
-YouTube
-</div>
-
-<div class="app">
-<div class="icon"><img src="https://img.icons8.com/color/96/spotify.png"></div>
-Spotify
-</div>
-
-<div class="app">
-<div class="icon"><img src="https://img.icons8.com/color/96/safari--v1.png"></div>
-Safari
-</div>
-
-<div class="app">
-<div class="icon"><img src="https://img.icons8.com/color/96/google-maps.png"></div>
-Maps
-</div>
-
-</div>
-
-<div class="dock">
-
-<img src="https://img.icons8.com/color/96/phone.png">
-<img src="https://img.icons8.com/color/96/safari--v1.png">
-<img src="https://img.icons8.com/color/96/imessage.png">
-<img src="https://img.icons8.com/color/96/apple-music.png">
-
-</div>
-
-</div>
-
-<script>
-
-let startY=0
-
-document.addEventListener("touchstart",e=>{
-startY=e.touches[0].clientY
-})
-
-document.addEventListener("touchend",e=>{
-let endY=e.changedTouches[0].clientY
-
-if(startY-endY>70){
-document.getElementById("phone").classList.add("unlock")
-}
-})
-
-</script>
+<div class="circle" style="width:40px;height:40px;left:10%;animation-duration:9s"></div>
+<div class="circle" style="width:25px;height:25px;left:25%;animation-duration:7s"></div>
+<div class="circle" style="width:35px;height:35px;left:45%;animation-duration:11s"></div>
+<div class="circle" style="width:20px;height:20px;left:60%;animation-duration:8s"></div>
+<div class="circle" style="width:50px;height:50px;left:80%;animation-duration:12s"></div>
 
 </body>
 </html>
