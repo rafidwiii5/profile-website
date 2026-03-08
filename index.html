@@ -20,13 +20,11 @@ font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 /* SCALE */
 
 .phoneWrap{
-transform:scale(.75);
+transform:scale(.8);
 }
 
 @media (max-width:600px){
-.phoneWrap{
-transform:scale(1);
-}
+.phoneWrap{transform:scale(1);}
 }
 
 /* PHONE */
@@ -47,10 +45,9 @@ position:absolute;
 width:100%;
 height:100%;
 background:url("https://images.unsplash.com/photo-1519608487953-e999c86e7455") center/cover;
-filter:brightness(.9);
 }
 
-/* STATUS BAR */
+/* STATUS */
 
 .status{
 position:absolute;
@@ -88,6 +85,7 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 color:white;
+transition:1s;
 }
 
 .time{
@@ -96,11 +94,27 @@ font-weight:600;
 margin-top:100px;
 }
 
-.swipe{
+/* SWIPE INDICATOR */
+
+.swipeArea{
 position:absolute;
 bottom:50px;
+display:flex;
+flex-direction:column;
+align-items:center;
 font-size:13px;
-opacity:.8;
+opacity:.9;
+}
+
+.arrow{
+font-size:24px;
+animation:swipeUp 1.2s infinite;
+}
+
+@keyframes swipeUp{
+0%{transform:translateY(10px);opacity:.4}
+50%{transform:translateY(-10px);opacity:1}
+100%{transform:translateY(10px);opacity:.4}
 }
 
 /* HOME */
@@ -125,8 +139,6 @@ text-align:center;
 color:white;
 font-size:11px;
 }
-
-/* ICON */
 
 .icon{
 width:54px;
@@ -197,7 +209,11 @@ border-radius:10px;
 <div class="lockscreen" id="lock">
 
 <div class="time" id="time">9:41</div>
-<div class="swipe">Swipe up to unlock</div>
+
+<div class="swipeArea">
+<div class="arrow">⌃</div>
+Swipe up
+</div>
 
 </div>
 
@@ -254,6 +270,66 @@ Spotify
 
 <div class="dock">
 
-<a href="https://instagram.com" target="_blank">
-<div
+<a href="https://instagram.com">
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+</div>
+</a>
+
+<a href="https://tiktok.com">
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+</div>
+</a>
+
+<a href="https://youtube.com">
+<div class="icon">
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+</div>
+</a>
+
+</div>
+
+</div>
+
+<div class="homebar"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function updateTime(){
+let now=new Date()
+let h=now.getHours().toString().padStart(2,"0")
+let m=now.getMinutes().toString().padStart(2,"0")
+
+document.getElementById("time").innerText=h+":"+m
+document.getElementById("timeSmall").innerText=h+":"+m
+}
+
+setInterval(updateTime,1000)
+updateTime()
+
+/* AUTO SWIPE ANIMATION */
+
+setTimeout(()=>{
+
+let lock=document.getElementById("lock")
+let home=document.getElementById("home")
+
+lock.style.transform="translateY(-100%)"
+
+setTimeout(()=>{
+lock.style.display="none"
+home.style.display="block"
+},800)
+
+},2500)
+
+</script>
+
+</body>
+</html>
 ```
